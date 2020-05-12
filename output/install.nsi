@@ -17,17 +17,17 @@ Unicode true
 !define WEASEL_ROOT $INSTDIR\weasel-${WEASEL_VERSION}
 
 ; The name of the installer
-Name "小狼毫 ${WEASEL_VERSION}"
+Name "小狼毫声笔专版 ${WEASEL_VERSION}"
 
 ; The file to write
-OutFile "archives\weasel-${WEASEL_VERSION}.${WEASEL_BUILD}-installer.exe"
+OutFile "archives\weasel4sbxlm-${WEASEL_VERSION}.${WEASEL_BUILD}.exe"
 
 VIProductVersion "${WEASEL_VERSION}.${WEASEL_BUILD}"
-VIAddVersionKey /LANG=2052 "ProductName" "小狼毫"
+VIAddVersionKey /LANG=2052 "ProductName" "小狼毫声笔专版"
 VIAddVersionKey /LANG=2052 "Comments" "Powered by RIME | 中州韻輸入法引擎"
 VIAddVersionKey /LANG=2052 "CompanyName" "式恕堂"
 VIAddVersionKey /LANG=2052 "LegalCopyright" "Copyleft RIME Developers"
-VIAddVersionKey /LANG=2052 "FileDescription" "小狼毫輸入法"
+VIAddVersionKey /LANG=2052 "FileDescription" "小狼毫声笔系列码"
 VIAddVersionKey /LANG=2052 "FileVersion" "${WEASEL_VERSION}"
 
 !define MUI_ICON ..\resource\weasel.ico
@@ -175,6 +175,15 @@ program_files:
   StrCpy $R2 "/t"
 
   ExecWait '"$INSTDIR\WeaselSetup.exe" $R2'
+
+  IfFileExists $APPDATA\RimeBak 0 +2
+  RMDir /r $APPDATA\RimeBak
+  CreateDirectory $APPDATA\RimeBak
+  IfFileExists $APPDATA\Rime 0 +3
+  CopyFiles $APPDATA\Rime\*.* $APPDATA\RimeBak  
+  RMDir /r $APPDATA\Rime
+  CreateDirectory $APPDATA\Rime  
+  CopyFiles $EXEDIR\sbxlm\*.* $APPDATA\Rime  
 
   ; run as user...
   ExecWait "$INSTDIR\WeaselDeployer.exe /install"

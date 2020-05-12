@@ -72,7 +72,7 @@ if "%1" == "weasel" set build_weasel=1
 if "%1" == "installer" set build_installer=1
 if "%1" == "all" (
   set build_boost=1
-  set build_data=1
+  set build_data=0
   set build_opencc=1
   set build_hant=1
   set build_rime=1
