@@ -176,12 +176,7 @@ program_files:
 
   ExecWait '"$INSTDIR\WeaselSetup.exe" $R2'
 
-  IfFileExists $APPDATA\RimeBak 0 +2
-  RMDir /r $APPDATA\RimeBak
-  CreateDirectory $APPDATA\RimeBak
-  IfFileExists $APPDATA\Rime 0 +3
-  CopyFiles $APPDATA\Rime\*.* $APPDATA\RimeBak  
-  RMDir /r $APPDATA\Rime
+  IfFileExists $APPDATA\Rime +3 0
   CreateDirectory $APPDATA\Rime  
   CopyFiles $EXEDIR\sbxlm\*.* $APPDATA\Rime  
 
