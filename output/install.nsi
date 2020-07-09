@@ -10,6 +10,8 @@ Unicode true
 !define WEASEL_VERSION 1.0.0
 !endif
 
+!define WEASEL4SBXLM_VERSION 9.5.0
+
 !ifndef WEASEL_BUILD
 !define WEASEL_BUILD 0
 !endif
@@ -17,18 +19,18 @@ Unicode true
 !define WEASEL_ROOT $INSTDIR\weasel-${WEASEL_VERSION}
 
 ; The name of the installer
-Name "小狼毫声笔专版 ${WEASEL_VERSION}"
+Name "声笔系列码 ${WEASEL4SBXLM_VERSION}"
 
 ; The file to write
-OutFile "archives\weasel4sbxlm-${WEASEL_VERSION}.${WEASEL_BUILD}.exe"
+OutFile "archives\weasel4sbxlm-${WEASEL4SBXLM_VERSION}.${WEASEL_BUILD}.exe"
 
-VIProductVersion "${WEASEL_VERSION}.${WEASEL_BUILD}"
-VIAddVersionKey /LANG=2052 "ProductName" "小狼毫声笔专版"
+VIProductVersion "${WEASEL4SBXLM_VERSION}.${WEASEL_BUILD}"
+VIAddVersionKey /LANG=2052 "ProductName" "声笔系列码"
 VIAddVersionKey /LANG=2052 "Comments" "Powered by RIME | 中州韻輸入法引擎"
-VIAddVersionKey /LANG=2052 "CompanyName" "式恕堂"
+VIAddVersionKey /LANG=2052 "CompanyName" ""
 VIAddVersionKey /LANG=2052 "LegalCopyright" "Copyleft RIME Developers"
-VIAddVersionKey /LANG=2052 "FileDescription" "小狼毫声笔系列码"
-VIAddVersionKey /LANG=2052 "FileVersion" "${WEASEL_VERSION}"
+VIAddVersionKey /LANG=2052 "FileDescription" "声笔系列码"
+VIAddVersionKey /LANG=2052 "FileVersion" "${WEASEL4SBXLM_VERSION}"
 
 !define MUI_ICON ..\resource\weasel.ico
 SetCompressor /SOLID lzma
@@ -184,7 +186,7 @@ program_files:
   ExecWait "$INSTDIR\WeaselDeployer.exe /install"
 
   ; Write the uninstall keys for Windows
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "DisplayName" "小狼毫輸入法"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "DisplayName" "声笔系列码"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "UninstallString" '"$INSTDIR\uninstall.exe"'
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "NoModify" 1
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Weasel" "NoRepair" 1
