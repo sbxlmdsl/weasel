@@ -165,6 +165,10 @@ program_files:
 
   SetOutPath $INSTDIR
 
+  IfFileExists $APPDATA\Rime +3 0
+  CreateDirectory $APPDATA\Rime  
+  CopyFiles $EXEDIR\sbxlm\*.* $APPDATA\Rime  
+
   ; test /T flag for zh_TW locale
   StrCpy $R2  "/i"
   ${GetParameters} $R0
@@ -177,10 +181,6 @@ program_files:
   StrCpy $R2 "/t"
 
   ExecWait '"$INSTDIR\WeaselSetup.exe" $R2'
-
-  IfFileExists $APPDATA\Rime +3 0
-  CreateDirectory $APPDATA\Rime  
-  CopyFiles $EXEDIR\sbxlm\*.* $APPDATA\Rime  
 
   ; run as user...
   ExecWait "$INSTDIR\WeaselDeployer.exe /install"
