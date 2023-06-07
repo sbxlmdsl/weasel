@@ -8,8 +8,8 @@ set rime_version=1.8.5
 set download_archive=rime-8d56791-Windows.7z
 set download_archive_deps=rime-deps-8d56791-Windows.7z
 
-curl -LO https://github.com/rime/librime/releases/download/%rime_version%/%download_archive%
-curl -LO https://github.com/rime/librime/releases/download/%rime_version%/%download_archive_deps%
+curl -LO https://github.com/sbxlmdsl/librime/releases/download/%rime_version%/%download_archive%
+curl -LO https://github.com/sbxlmdsl/librime/releases/download/%rime_version%/%download_archive_deps%
 
 7z x %download_archive% * -olibrime\ | find "ing archive"
 7z x %download_archive_deps% * -olibrime\ | find "ing archive"
