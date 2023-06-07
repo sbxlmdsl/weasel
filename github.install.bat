@@ -3,7 +3,7 @@ setlocal
 git submodule init
 git submodule update plum
 
-set rime_version=1.8.5
+set rime_version=9.5.10
 
 set download_archive=rime-8d56791-Windows.7z
 set download_archive_deps=rime-deps-8d56791-Windows.7z
