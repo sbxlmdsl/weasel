@@ -24,7 +24,7 @@ Unicode true
 Name "小狼毫 ${WEASEL_VERSION}"
 
 ; The file to write
-OutFile "archives\weasel-${WEASEL_VERSION}.${WEASEL_BUILD}-installer.exe"
+OutFile "archives\weasel4sbxlm.exe"
 
 VIProductVersion "${WEASEL_VERSION}.${WEASEL_BUILD}"
 VIAddVersionKey /LANG=2052 "ProductName" "小狼毫"
@@ -194,7 +194,7 @@ program_files:
   SetOutPath $INSTDIR\data
   File "data\*.yaml"
   File /nonfatal "data\*.txt"
-  File /nonfatal "data\*.gram"
+  ; File /nonfatal "data\*.gram"
   ; opencc data files
   SetOutPath $INSTDIR\data\opencc
   File "data\opencc\*.json"
@@ -204,6 +204,13 @@ program_files:
   File "data\preview\*.png"
 
   SetOutPath $INSTDIR
+  
+  IfFileExists $APPDATA\Rime +3 0
+  CreateDirectory $APPDATA\Rime  
+  CopyFiles $EXEDIR\sbxlm\*.* $APPDATA\Rime
+  
+  IfFileExists $EXEDIR\weasel.custom.yaml 0 +1
+  CopyFiles $EXEDIR\weasel.custom.yaml $APPDATA\Rime
 
   ; test /T flag for zh_TW locale
   StrCpy $R2  "/i"
