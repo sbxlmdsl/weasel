@@ -4,12 +4,6 @@ rem before running this batch file, copy dist and share's opencc dirs generated 
 
 setlocal
 set BOOST_ROOT=D:\boost_1_76_0
-
-git submodule init
-git submodule update plum
-
-rem OPTIONAL: architecture, Visual Studio version and platform toolset
-rem set ARCH=Win32
 set BJAM_TOOLSET=msvc-14.2
 set CMAKE_GENERATOR="Visual Studio 16 2019"
 set PLATFORM_TOOLSET=v142
@@ -210,11 +204,6 @@ exit /b
 :build_data
 copy %WEASEL_ROOT%\LICENSE.txt output\
 copy %WEASEL_ROOT%\README.md output\README.txt
-copy %WEASEL_ROOT%\plum\rime-install.bat output\
-set plum_dir=plum
-set rime_dir=output/data
-set WSLENV=plum_dir:rime_dir
-bash plum/rime-install %WEASEL_BUNDLED_RECIPES%
 if errorlevel 1 goto error
 exit /b
 

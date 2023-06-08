@@ -167,7 +167,7 @@ program_files:
   File "COPYING-curl.txt"
   File "curl.exe"
   File "curl-ca-bundle.crt"
-  File "rime-install.bat"
+  ; File "rime-install.bat"
   File "rime-install-config.bat"
   File "weasel.dll"
   ${If} ${RunningX64}
