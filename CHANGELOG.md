@@ -1,5 +1,9 @@
+<a name="9.5.11"></a>
+## Weasel 9.5.11 for Sbxlm (2023-11-15)
+test weasel for sbxlm.
+
 <a name="0.15.0"></a>
-## [0.15.0](https://github.com/rime/weasel/compare/0.15.0...0.14.3) (2023-06-06)
+## 0.15.0(2023-06-06)
 
 
 #### 安裝須知
